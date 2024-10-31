@@ -1,5 +1,5 @@
 /.idea
-/fitaudit/in
-/fitaudit/out/*
+/app/in
+/app/out/*
 
 poetry.lock

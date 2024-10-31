@@ -32,6 +32,18 @@ ignore = []
 fixable = ["ALL"]
 unfixable = []
 
+[tool.mypy]
+plugins = [
+]
+
+[tool.bandit]
+skips = ['B311']
+
+[tool.bandit.assert_used]
+skips = ['*/tests/*']
+
+
+
 [tool.poetry]
 name = "fitaudit"
 version = "0.1.0"
@@ -47,9 +59,19 @@ aioitertools = "^0.12.0"
 beautifulsoup4 = "^4.12.3"
 lxml = "^5.3.0"
 
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+markdown-table-generator = "^1.1.0"
+
+
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
 ruff = "^0.7.1"
+pre-commit = "^4.0.1"
+black = "^24.10.0"
+prospector = { extras = ["with-everything"], version = "^1.12.1" }
 
 [build-system]
 requires = ["poetry-core"]
