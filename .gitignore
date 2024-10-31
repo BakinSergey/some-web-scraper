@@ -2,3 +2,4 @@
 /fitaudit/in
 /fitaudit/out/*
 
+poetry.lock

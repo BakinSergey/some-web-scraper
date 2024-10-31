@@ -1,3 +1,37 @@
+[tool.ruff]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["E", "W", "C", "F", "N", "D"]
+ignore = []
+
+fixable = ["ALL"]
+unfixable = []
+
 [tool.poetry]
 name = "fitaudit"
 version = "0.1.0"
@@ -15,6 +49,7 @@ lxml = "^5.3.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
+ruff = "^0.7.1"
 
 [build-system]
 requires = ["poetry-core"]
