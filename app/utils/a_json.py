@@ -4,13 +4,15 @@ import json
 from pathlib import Path
 from typing import AsyncIterator
 
-import aiofiles
-import aioitertools as aiter
+import aiofiles  # type: ignore
+import aioitertools as aiter  # type: ignore
 
 from app import TARGET
 
+json_obj = dict | list | str
 
-async def save_json(file, obj):
+
+async def save_json(file: Path, obj: json_obj) -> None:
     """Json save fn."""
     data = json.dumps(obj, ensure_ascii=False)
     async with aiofiles.open(TARGET / file, "w") as f:
@@ -23,10 +25,7 @@ async def chunked(seq: str, size: int) -> AsyncIterator[str]:
         yield i
 
 
-json_obj = dict | list | str | bytes
-
-
-async def save_chunked(file: Path, obj: json_obj, size: int):
+async def save_chunked(file: Path, obj: json_obj, size: int) -> None:
     """Json save chunked fn."""
     data = json.dumps(obj, ensure_ascii=False)
     async with aiofiles.open(TARGET / file, "w") as f:

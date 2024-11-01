@@ -32,18 +32,6 @@ ignore = []
 fixable = ["ALL"]
 unfixable = []
 
-[tool.mypy]
-plugins = [
-]
-
-[tool.bandit]
-skips = ['B311']
-
-[tool.bandit.assert_used]
-skips = ['*/tests/*']
-
-
-
 [tool.poetry]
 name = "fitaudit"
 version = "0.1.0"
