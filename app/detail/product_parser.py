@@ -1,6 +1,7 @@
 """Product detail parsing."""
 
-from bs4 import Tag
+from bs4 import Tag  # type: ignore
+from typing import Tuple, Dict, Any
 
 
 class S:
@@ -16,7 +17,7 @@ class S:
     a_span = "pr__ash"  # зола
 
 
-def _get_quantity(s: Tag) -> (float, str):
+def _get_quantity(s: Tag) -> Tuple[float, str]:
     while s.name != "span":
         s = s.next
         continue
@@ -25,9 +26,9 @@ def _get_quantity(s: Tag) -> (float, str):
     return float(v), u
 
 
-def _product_info_parser(soup):
+def _product_info_parser(soup: Any) -> Dict:
     him = soup.find("div", id=S.him_div_id)
-    product = {}
+    product: Dict = {}
 
     # content
     product.update({"content": {}})

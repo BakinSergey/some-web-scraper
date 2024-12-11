@@ -1,6 +1,8 @@
 /.idea
+/app/.idea
 /app/in
 /app/out/*
 /app/docs/*
+/app/errors/*
 
 poetry.lock
